@@ -1,7 +1,6 @@
 # Meraki_Tshoot
 ## Meraki Basic Tshoot for MX, MS, and MR
-*This will help you to pull basic troubleshoot information about your Orgs and your Networks
-*This script creates CSV file for each output
+*This will help you to pull basic troubleshoot information about your Orgs and your Networks\ This script creates CSV file for each output
 
 ## How it works
 1. Run the "Meraki_BasicTshoot.py" file
