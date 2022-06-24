@@ -1,5 +1,5 @@
 # Meraki_Tshoot
-## MEraki Basic Tshoor for MX, MS, and MR
+## Meraki Basic Tshoot for MX, MS, and MR
 *This will help you to pull basic troubleshoot information about your Orgs and your Networks
 *This script creates CSV file for each output
 
