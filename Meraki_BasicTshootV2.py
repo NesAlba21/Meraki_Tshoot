@@ -1,4 +1,4 @@
-### Meraki basic Tshoot- v1 by NesAlba
+### Meraki basic Tshoot- v2 by NesAlba
 
 import json
 from operator import index
@@ -528,14 +528,6 @@ def main():
                     vpnInfoPd = pd.DataFrame(listVpnInfo, columns=Headers)
                     vpnInfoPd.index +=1
                     print(vpnInfoPd)
-                    # VpnCsv = datetime.now().strftime("Site-To-Site VPN_in Org_"+str(UserOrgChoice)+"_info__%m-%d-%Y-%Hh%Mm%Ss.csv")
-                    # with open(VpnCsv, "a", newline="") as VpnInfoFile:
-                    #     writeFile = csv.writer(VpnInfoFile)
-                    #     writeFile.writerow(Headers)
-                    #     writeFile.writerows(listVpnInfo)
-                    #     VpnInfoFile.close()
-                    #             #End csv file
-                    #             #End csv file
                 except meraki.APIError as e:
                     print (e)
                     print("\n")
@@ -555,8 +547,6 @@ def main():
                     listMxVlans =[]
                     for mxVlans in respuestaMxVlans:
                         print("** Network Uplink Info **")
-                        #print("Vlan id: {}\tname: {}\tapplIp: {}\tSubnet: {}\tDns: {}\tDhcpHand: {}".format(mxVlans["id"], mxVlans["name"], mxVlans["applianceIp"], mxVlans["subnet"],mxVlans["dnsNameservers"], mxVlans["dhcpHandling"] ))
-
                         #Create csv file
                         wMxVlanNtwk = (mxVlans["networkId"])
                         wMxVlanId = (mxVlans["id"])
@@ -610,8 +600,6 @@ def main():
                         listMXStaticRoutes = []
                         for MxStatic in respuestaMxStaticRoutes:
                             print("** Network Static Routes **")
-                            #print("Name: {}\t Subet: {}\t Gateway: {}".format(MxStatic["name"], MxStatic["subnet"], MxStatic["gatewayIp"]))
-                            
                             #Create csv file
                             wMxStaticNtwk = (MxStatic["networkId"])
                             wMxStaticName = (MxStatic["name"])
