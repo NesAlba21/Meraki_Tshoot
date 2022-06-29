@@ -5,6 +5,7 @@ import pandas as pd
 import requests
 import json
 
+# Functions section
 def print_banner():
 
     print("  __  __              _   _ ")
