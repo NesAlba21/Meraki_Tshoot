@@ -572,7 +572,7 @@ def merakiBlinkLed(apiKey):
     except meraki.APIError as e:
         print(e)
 
-#Program strats here
+# Program strats here
 print_banner()
 apiKey = input("Enter your Meraki API Key: ")
 merakiMenu()
