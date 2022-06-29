@@ -573,6 +573,6 @@ def merakiBlinkLed(apiKey):
 
 #Program strats here
 print_banner()
-apiKey = "2a67ac33ea4ddf9e02d495802c5aacbc50303976" # input("Enter your Meraki API Key: ")
+apiKey = input("Enter your Meraki API Key: ")
 merakiMenu()
 
