@@ -44,7 +44,7 @@ def merakiOrgs(apiKey):
 
     """Function to get the Organizations list under your meraki API key"""
     try:
-        dashboard = meraki.DashboardAPI(apiKey)
+        dashboard = meraki.DashboardAPI(apiKey,output_log=False,print_console=False)
         response = dashboard.organizations.getOrganizations()
         listOrgs = []
         for orgs in response:
@@ -72,7 +72,7 @@ def merakiNetworks(apiKey):
     """Function to get the Networks list under a specific Organization"""
     try:
         askOrg = input("Copy/paste Organization id: ")
-        dashboard = meraki.DashboardAPI(apiKey)
+        dashboard = meraki.DashboardAPI(apiKey,output_log=False,print_console=False)
         organization_id = askOrg
         response = dashboard.organizations.getOrganizationNetworks(organization_id, total_pages='all')
         listNetworks = []
@@ -100,7 +100,7 @@ def merakiDevicesNet(apiKey):
 
     try:
         askNetwork = input("Enter Network id: ")
-        dashboard = meraki.DashboardAPI(apiKey)
+        dashboard = meraki.DashboardAPI(apiKey,output_log=False,print_console=False)
         response = dashboard.networks.getNetworkDevices(askNetwork)
         listDevices = []
         for devices in response:
@@ -222,7 +222,7 @@ def merakiMrInfo(apiKey):
         print("** MR device info **")
         print("i - you can pull MR device serial from Menu>Devices in your network")
         choiceMr = input("Type MR device serial: ")
-        dashboard = meraki.DashboardAPI(apiKey)
+        dashboard = meraki.DashboardAPI(apiKey,output_log=False,print_console=False)
         response = dashboard.wireless.getDeviceWirelessStatus(choiceMr)
         listApsInfo=[]
         for apsInfo in response["basicServiceSets"]:
@@ -259,7 +259,7 @@ def merakRfProf(apiKey):
         print("** Custom Network RF profiles info **")
         print("i - you can pull the Network id from 'Menu>Devices' in your network")
         askNetwork = input("Copy/paste Network id: ")
-        dashboard = meraki.DashboardAPI(apiKey)
+        dashboard = meraki.DashboardAPI(apiKey,output_log=False,print_console=False)
         response = dashboard.wireless.getNetworkWirelessRfProfiles(askNetwork)
         if response == []:
             print("\n")
@@ -341,7 +341,7 @@ def merakiNetworkSsid(apiKey):
         print("** Netwotk SSIDs info  **")
         print("i - you can pull the Network id from 'Menu>Devices' in your network")
         askNetwork = input("Copy/paste Network id: ")
-        dashboard = meraki.DashboardAPI(apiKey)
+        dashboard = meraki.DashboardAPI(apiKey,output_log=False,print_console=False)
         response = dashboard.wireless.getNetworkWirelessSsids(askNetwork)
         listSsidsNet = []
         for ssidsInf in response:
@@ -380,7 +380,7 @@ def merakiSwitch(apiKey):
         print("** Switch info **")
         print("i -- you can pull switch serial number from Menu>Devices in your network")
         choiceMs = input("Type MS device serial: ")
-        dashboard =meraki.DashboardAPI(apiKey)
+        dashboard =meraki.DashboardAPI(apiKey,output_log=False,print_console=False)
         response = dashboard.switch.getDeviceSwitchPortsStatuses(choiceMs)
         listMsInfo= []
         for ports in response:
@@ -465,7 +465,7 @@ def merakiStSVpn(apiKey):
     try:
         print()
         askOrg = input("Enter an Organization id: ")
-        dashboard = meraki.DashboardAPI(apiKey)
+        dashboard = meraki.DashboardAPI(apiKey,output_log=False,print_console=False)
         response = dashboard.appliance.getOrganizationApplianceVpnStatuses(askOrg, total_pages='all')
         listVpnInfo = []
         for vpnStatuses in response:
@@ -499,7 +499,7 @@ def merakiMxUplink(apiKey):
     try:
         print()
         askNetwork = input("Enter Network id: ")
-        dashboard = meraki.DashboardAPI(apiKey)
+        dashboard = meraki.DashboardAPI(apiKey,output_log=False,print_console=False)
         response = dashboard.appliance.getNetworkApplianceVlans(askNetwork)
         listMxVlans = []
         for mxVlans in response:
@@ -530,7 +530,7 @@ def merakiMxStatic(apiKey):
     try:
         print()
         askNetwork = input("Enter Network id: ")
-        dashboard = meraki.DashboardAPI(apiKey)
+        dashboard = meraki.DashboardAPI(apiKey,output_log=False,print_console=False)
         response = dashboard.appliance.getNetworkApplianceStaticRoutes(askNetwork)
         if response == []:
             print("\n")
@@ -560,7 +560,7 @@ def merakiBlinkLed(apiKey):
 
     try:
         print("i -- Blink device leds")
-        dashboard = meraki.DashboardAPI(apiKey)
+        dashboard = meraki.DashboardAPI(apiKey,output_log=False,print_console=False)
         choosedevice = input("Type device serial number: ")
         chooseDuration = input ("For how long?(in sec):")
         response = dashboard.devices.blinkDeviceLeds(
